@@ -12,7 +12,7 @@ def saturation(image):
     if image_np is None:
         print("Could not open or find the image")
 
-    saturationScale = st.slider('채도', min_value = 0.00, max_value = 10.00, value = 1.00)
+    saturationScale = st.sidebar.slider('채도', min_value = 0.00, max_value = 10.00, value = 1.00)
 
     hsvImage = cv2.cvtColor(image_np, cv2.COLOR_BGR2HSV)
 
@@ -39,7 +39,7 @@ def brightness(image):
     if image_np is None:
         print("Could not open or find the image")
 
-    beta = st.slider('밝기', min_value = -300, max_value = 300, value = 0)
+    beta = st.sidebar.slider('밝기', min_value = -300, max_value = 300, value = 0)
 
     #컬러스페이스는 ycrcd로 정했다. rgb hsv 같은 것.
     #불러온 이미지의 컬러 스페이스를 ycrcb로 변경했다.
@@ -71,3 +71,7 @@ def brightness(image):
     ycbImage = cv2.cvtColor(ycbImage, cv2.COLOR_YCrCb2BGR)
 
     return ycbImage
+
+
+def colortransfer():
+    pass
